@@ -1,0 +1,37 @@
+/* 
+@media screen and (max-width:639px) {
+    body {
+        background: #000;
+    }
+    
+}
+@media screen and (min-width:640px) and (max-width:767px) {
+    body {
+        background: #00f105;
+    }
+    
+}
+@media screen and (min-width:768px) and (max-width:1023px) {
+    body {
+        background: #ff9f00;
+    }
+    
+}
+@media screen and (min-width:1024px) and (max-width:1279px) {
+    body {
+        background: #0ff;
+    }
+    
+}
+@media screen and (min-width:1280px) and (max-width:1535px) {
+    body {
+        background: #f00;
+    }
+    
+}
+@media screen and (min-width:1536px) {
+    body {
+        background: #0f0;
+    }
+    
+} */

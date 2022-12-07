@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/all.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <style>
+      .swiper-pagination-bullet {
+        width: 14px;
+        height: 14px;
+        background: transparent;
+        border: 1px solid rgb(108, 106, 106);
+        opacity: 1;
+      }
+      .swiper-pagination-bullet:hover {
+        border: 1px solid rgb(164, 21, 21);
+        transition: 0.3s;
+      }
+      .swiper-pagination-bullet-active {
+        width: 14px;
+        height: 14px;
+        border: 1px solid rgb(182, 23, 23);
+        background: rgb(187, 16, 44);
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body class="flex flex-col justify-first items-first">
+    <div
+      class="fixed top-[0px] w-screen flex flex-col justify-first items-center z-100 lg:hidden"
+    >
+      <nav
+        class="w-full px-6 h-20 flex justify-between sticky z-100 top-0 lg:relative bg-white"
+      >
+        <div class="flex items-center justify-first w-3/12 h-full">
+          <p
+            class="font-semibold flex items-center justify-first lg:text-[40px] text-[25px]"
+          >
+            Délicious
+          </p>
+        </div>
+        <div class="w-6/12 h-full lg:flex hidden">
+          <ul class="flex justify-between items-center h-full w-full">
+            <a href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">Homes</p>
+            </a>
+            <a href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">
+                About
+              </p></a
+            >
+            <a href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">
+                Menu
+              </p></a
+            >
+            <a href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">
+                Resevation
+              </p></a
+            >
+            <a href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">
+                Gallery
+              </p></a
+            >
+            <a href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">
+                Blog
+              </p></a
+            >
+            <a href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">
+                Features
+              </p></a
+            >
+            <a href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">
+                Shop
+              </p></a
+            >
+            <a href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">
+                Contact
+              </p></a
+            >
+          </ul>
+        </div>
+        <div class="w-8/12 sm:w-4/12 h-full flex justify-end">
+          <div class="w-2/12 h-full flex justify-center items-center">
+            <div class="flex w-6/12 h-3/6 justify-end items-center">
+              <i class="fa-solid fa-bag-shopping h-3/6"></i>
+            </div>
+            <div class="flex w-6/12 h-3/6 justify-first items-first">
+              <div
+                class="lg:w-4/12 lg:h-full w-5 h-5 bg-white rounded-full border-[1px] border-gray-800 flex justify-center items-center text-[10px]"
+              >
+                <p
+                  class="flex justify-center items-center text-[8px] font-semibold"
+                >
+                  0
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center items-center w-2/12 h-full">
+            <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
+          </div>
+          <div
+            id="menuIcon"
+            class="w-2/12 h-full flex flex-col justify-center items-center"
+          >
+            <div class="w-5 h-[3px] bg-red-800"></div>
+            <div class="w-5 h-[3px] bg-red-800 my-1"></div>
+            <div class="w-5 h-[3px] bg-red-800"></div>
+          </div>
+          <div
+            id="menuIcon2"
+            class="w-2/12 h-full flex flex-col justify-center items-center hidden"
+          >
+            <a href="" class="h-6/12 w-6/12 flex justify-center items-center"
+              ><i class="fa-solid fa-xmark h-5 w-5 flex text-red-800"></i
+            ></a>
+          </div>
+        </div>
+      </nav>
+      <div
+        id="Menu"
+        class="w-10/12 h-[250px] mx-auto bg-white flex flex-col justify-first items-center drop-shadow-2xl hidden"
+      >
+        <span class="text-[16px] text-red-700 mt-10 cursor-pointer" id="Homes">Home</span>
+        <span class="text-[16px] text-gray-700 mt-4 cursor-pointer" id="Abouts">About</span>
+        <span class="text-[16px] text-gray-700 mt-4 cursor-pointer" id="Reservations">Reservation</span>
+        <span class="text-[16px] text-gray-700 mt-4 cursor-pointer" id="Galleries">Galley</span>
+        <span class="text-[16px] text-gray-700 mt-4 cursor-pointer" id="Contacts">Contact</span>
+      </div>
+    </div>
+    <div
+      class="absolute h-48 w-screen flex justify-center items-center bg-white blur-sm top-[550px] left-[0px] z-50"
+    ></div>
+    <div
+      class="absolute h-48 w-screen flex justify-center items-center bg-white top-[560px] left-[0px] z-50"
+    ></div>
+    <header
+    id="headers"
+      class="relative w-screen h-20 container 2xl:px-28 local top-[0px] z-50 px-4 mx-auto"
+    >
+      <nav
+        class="w-full mx-auto h-20 flex justify-between sticky z-100 top-0 lg:relative bg-white invisible lg:visible"
+      >
+        <div class="flex items-center justify-first w-3/12 h-full">
+          <p
+            class="font-semibold flex items-center justify-first lg:text-[40px] text-[30px]"
+          >
+            Délicious
+          </p>
+        </div>
+        <div class="w-6/12 h-full lg:flex hidden">
+          <ul class="flex justify-between items-center h-full w-full">
+            <a id="Abouts2" href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">
+                About
+              </p></a
+            >
+            <a id="Reservations2" href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">
+                Resevation
+              </p></a
+            >
+            <a id="Galleries2" href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">
+                Gallery
+              </p></a
+            >
+            <a id="Contacts2" href="" class="h-full flex items-center"
+              ><p class="text-[14px] hover:text-red-300 font-semibold">
+                Contact
+              </p></a
+            >
+          </ul>
+        </div>
+        <div class="w-3/12 h-full flex justify-end">
+          <div class="w-2/12 h-full flex flex-col justify-center items-center">
+            <div class="flex w-10/12 h-1/6 justify-end items-end">
+              <div
+                class="lg:w-4/12 lg:h-full w-3 h-3 bg-white rounded-full border-[1px] border-gray-800 flex justify-center items-center text-[10px]"
+              >
+                <p
+                  class="flex justify-center items-center text-[8px] font-semibold"
+                >
+                  0
+                </p>
+              </div>
+            </div>
+            <div class="flex w-full h-2/6 justify-center">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+          </div>
+          <div class="flex justify-center items-center w-2/12 h-full">
+            <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
+          </div>
+          <div
+            class="w-2/12 h-full flex flex-col justify-center items-center lg:hidden"
+          >
+            <div class="w-10/12 h-[3px] bg-red-800"></div>
+            <div class="w-10/12 h-[3px] bg-red-800 my-1"></div>
+            <div class="w-10/12 h-[3px] bg-red-800"></div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section
+      class="sticky top-[0px] left-[0px] w-screen h-[480px] flex justify-center items-first bg-white z-40 relative"
+    >
+      <div
+        class="sticky w-full h-full bg-[url('/img/stock_pegan_pancakes.jpg')] bg-center bg-cover z-40 flex justify-center"
+      >
+      <div
+        class="flex sm:w-4/12 w-full h-[150px] lg:w-8/12 lg:h-[200px] justify-between items-end"
+      >
+        <div class="h-2/6 w-5/12 flex flex-col justify-end items-center mr-4">
+          <div class="w-full h-1/6 flex justify-end items-end">
+            <p
+              class="lg:text-[120px] md:text-[80px] text-[60px] font-semibold text-yellow-600"
+            >
+              Gour
+            </p>
+          </div>
+          <div class="w-full h-1/6 flex justify-end items-first mb-4">
+            <p
+              class="lg:text-[20px] md:text-[14px] text-[10px] font-semibold text-gray-500"
+            >
+            </p>
+          </div>
+        </div>
+        <div class="h-2/6 w-5/12 flex flex-col justify-end items-center ml-4">
+          <div class="w-full h-1/6 flex justify-first items-end">
+            <p
+              class="lg:text-[120px] md:text-[80px] text-[60px] font-semibold text-yellow-600"
+            >
+              méet
+            </p>
+          </div>
+          <div class="w-full h-1/6 flex justify-first items-first mb-4">
+            <p
+              class="lg:text-[20px] md:text-[14px] text-[10px] font-semibold text-gray-500"
+            >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section
+      id="theStoryMain"
+      class="w-screen h-[1000px] mx-auto flex flex-col justify-first items-center z-50 bg-white mt-20 text-center pb-10"
+    >
+      <div class="flex flex-col justify-center items-center h-[150px] w-8/12">
+        <ul
+          class="flex sm:justify-between items-center flex-wrap justify-center sm:w-10/12 lg:w-9/12 xl:w-6/12 mb-5"
+        >
+          <li
+            id="theStory"
+            class="h-8 sm:h-10 font-semibold md:text-[22px] sm:text-[20px] text-[18px] hover:transition-colors hover:duration-500 sm:mr-0 mr-2"
+          >
+            <a href="" id="theStory1">The Story</a>
+          </li>
+          <li
+            id="theTeam"
+            class="h-8 sm:h-10 font-semibold md:text-[22px] sm:text-[20px] text-[18px] hover:transition-colors hover:duration-500 sm:ml-0 mx-2"
+          >
+            <a href="" id="theTeam1">The Team</a>
+          </li>
+          <li
+            id="pressAwards"
+            class="h-8 sm:h-10 font-semibold md:text-[22px] sm:text-[20px] text-[18px] hover:transition-colors hover:duration-500"
+          >
+            <a href="" id="pressAwards1">Press & Awards</a>
+          </li>
+        </ul>
+        <div
+          class="flex justify-center items-center h-20 w-20 bg-[url('/img/220637-200.png')] bg-cover bg-center bg-no-repeat"
+        ></div>
+      </div>
+      <div
+        id="welcome"
+        class="flex flex-col justify-between items-center w-full h-full px-2"
+      >
+        <div class="flex justify-between items-center h-[100px] w-6/12">
+          <div class="h-[1px] w-4/12 bg-gray-200"></div>
+          <div class="flex justify-center items-center mx-4">
+            <p class="sm:text-[50px] text-[30px]">Welcome</p>
+          </div>
+          <div class="h-[1px] w-4/12 bg-gray-200"></div>
+        </div>
+        <div
+          class="w-full lg:h-2/6 h-3/6 flex lg:flex-row flex-col justify-between items-center"
+        >
+          <div
+            class="lg:w-4/12 w-full h-full flex flex-col justify-between items-center"
+          >
+            <div class="flex justify-center items-center w-full h-3/6">
+              <p class="text-red-600 lg:text-[40px] text-[30px] font-semibold">
+                1995
+              </p>
+            </div>
+            <div class="flex flex-col justify-center items-center w-full h-3/6">
+              <p
+                class="text-[17px] xl:text-[18px] text-gray-[500] flex justify-center items-center w-full"
+              >
+                Opens Osteria Francescana, Via Stella 22 Modena
+              </p>
+              <p
+                class="text-[17px] xl:text-[18px] text-gray-[500] flex justify-center items-center w-full"
+              >
+                Italy
+              </p>
+            </div>
+          </div>
+          <div
+            class="lg:w-4/12 w-full h-full flex flex-col justify-between items-center"
+          >
+            <div class="flex justify-center items-center w-full h-3/6">
+              <p class="text-red-600 lg:text-[40px] text-[30px] font-semibold">
+                2002
+              </p>
+            </div>
+            <div class="flex flex-col justify-center items-center w-full h-3/6">
+              <p
+                class="text-[17px] xl:text-[18px] text-gray-[500] flex justify-center items-center w-full"
+              >
+                Michelin Guide One-Michelin-Star. Gambero Rosso
+              </p>
+              <p
+                class="text-[17px] xl:text-[18px] text-gray-[500] flex justify-center items-center w-full"
+              >
+                Italy
+              </p>
+            </div>
+          </div>
+          <div
+            class="lg:w-4/12 w-full h-full flex flex-col justify-between items-center"
+          >
+            <div class="flex justify-center items-center w-full h-3/6">
+              <p class="text-red-600 lg:text-[40px] text-[30px] font-semibold">
+                2016
+              </p>
+            </div>
+            <div class="flex flex-col justify-center items-center w-full h-3/6">
+              <p
+                class="text-[17px] xl:text-[18px] text-gray-[500] flex justify-center items-center w-full"
+              >
+                Opens Osteria Francescana, Via Stella 22 Modena
+              </p>
+              <p
+                class="text-[17px] xl:text-[18px] text-gray-[500] flex justify-center items-center w-full"
+              >
+                Italy
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full lg:h-3/6 h-2/6 flex flex-col justify-center items-center"
+        >
+          <div
+            class="w-8/12 h-3/6 justify-center items-center hidden lg:flex lg:flex-col"
+          >
+            <p
+              class="text-[18px] xl:text-[18px] lg:text-[17px] text-gray-[500] flex justify-center items-center w-full"
+            >
+              “Since I was a kid I was Massimo Bottura — I was escaping from my
+              older brother under the table in the
+            </p>
+            <p
+              class="text-[18px] xl:text-[18px] lg:text-[17px] text-gray-[500] flex justify-center items-center w-full"
+            >
+              kitchen and from down there, where my grandmother was defending
+              me, in the meantime she was rolling
+            </p>
+            <p
+              class="text-[18px] xl:text-[18px] lg:text-[17px] text-gray-[500] flex justify-center items-center w-full"
+            >
+              pasta, i was looking at the world from another point of view. It’s
+              what we do in Osteria Francescana every
+            </p>
+            <p
+              class="text-[18px] xl:text-[18px] lg:text-[17px] text-gray-[500] flex justify-center items-center w-full"
+            >
+              day.”
+            </p>
+          </div>
+          <div class="w-11/12 h-4/6 justify-center items-center flex lg:hidden">
+            <p
+              class="text-[16px] text-gray-[500] flex justify-center items-center w-full"
+            >
+              “Since I was a kid I was Massimo Bottura — I was escaping from my
+              older brother under the table in the kitchen and from down there,
+              where my grandmother was defending me, in the meantime she was
+              rolling pasta, i was looking at the world from another point of
+              view. It’s what we do in Osteria Francescana every day.”
+            </p>
+          </div>
+          <div class="w-8/12 h-1/6 justify-center items-center lg:mt-6 mt-10">
+            <a
+              href=""
+              class="sm:text-[17px] xl:text-[18px] text-[15px] text-gray-[500] flex justify-center items-center w-full hover:text-yellow-600 font-semibold hover:transition-colors hover:duration-500"
+            >
+              Massimo Bottura
+            </a>
+          </div>
+          <div class="w-8/12 sm:h-1/6 h-10 flex justify-center items-center mt-4">
+            <i class="fa-solid fa-signature h-full sm:h-10 w-full sm:w-10 lg:h-28 lg:w-28"></i>
+          </div>
+        </div>
+      </div>
+      <div
+        id="Chefs"
+        class="flex flex-col justify-center items-center w-full h-full hidden"
+      >
+        <div class="flex justify-between items-center h-[100px] w-6/12">
+          <div class="h-[1px] w-4/12 bg-gray-200"></div>
+          <div class="flex justify-center items-center mx-4">
+            <p class="sm:text-[50px] text-[30px]">Chefs</p>
+          </div>
+          <div class="h-[1px] w-4/12 bg-gray-200"></div>
+        </div>
+        <div class="h-5/6 w-full justify-between items-center hidden lg:flex text-left">
+          <div
+            class="group relative w-3/12 h-full flex flex-col justify-center items-center"
+          >
+            <div
+              class="absolute top-[200px] 2xl:left-[120px] left-[60px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white opacity-0 group-hover:opacity-100 transform ease-in-out duration-500 group-hover:-translate-y-10"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[200px] 2xl:left-[180px] left-[120px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white opacity-0 group-hover:opacity-100 transform ease-in-out duration-500 group-hover:-translate-y-10"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[200px] 2xl:left-[240px] left-[180px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white opacity-0 group-hover:opacity-100 transform ease-in-out duration-500 group-hover:-translate-y-10"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="h-3/6 w-11/12 rounded-tl-[10px] rounded-tr-[10px] flex justify-center bg-[url('/img/people-1.jpg')] 2xl:bg-[length:470px_510px] 2xl:group-hover:bg-[length:430px_470px] xl:bg-[length:410px_450px] xl:group-hover:bg-[length:370px_410px] bg-center bg-[length:350px_390px] group-hover:bg-[length:310px_350px] group-hover:bg-center group-hover:brightness-50 transform ease-in-out duration-1000 flex justify-center items-center"
+            ></div>
+            <div
+              class="h-3/6 w-11/12 mx-auto flex flex-col items-first justify-between p-2 border-[1px] border-gray-300 bg-white group-hover:drop-shadow-2xl"
+            >
+              <div class="flex justify-first items-center">
+                <p class="text-[30px] font-semibold">Brad Farmerie</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-400">CEO & FOUNDER</p>
+              </div>
+              <div
+                class="flex justify-first items-center h-[2px] w-1/12 group-hover:w-2/12 bg-red-300 transform ease-in-out duration-500"
+              ></div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">Tel: 947 577 575</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">chef@vamtam.com</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-400 group-hover:text-gray-700">
+                  Brad Farmerie took a year hiatus from college to move to
+                  London and witness firsthand the culinary revolution taking
+                  place in the UK.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="group relative w-3/12 h-full flex flex-col justify-center items-center"
+          >
+            <div
+              class="absolute top-[200px] 2xl:left-[120px] left-[60px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white opacity-0 group-hover:opacity-100 transform ease-in-out duration-500 group-hover:-translate-y-10"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[200px] 2xl:left-[180px] left-[120px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white opacity-0 group-hover:opacity-100 transform ease-in-out duration-500 group-hover:-translate-y-10"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[200px] 2xl:left-[240px] left-[180px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white opacity-0 group-hover:opacity-100 transform ease-in-out duration-500 group-hover:-translate-y-10"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="h-3/6 w-11/12 rounded-tl-[10px] rounded-tr-[10px] flex justify-center bg-[url('/img/people-3.jpg')] 2xl:bg-[length:470px_510px] 2xl:group-hover:bg-[length:430px_470px] xl:bg-[length:410px_450px] xl:group-hover:bg-[length:370px_410px] bg-center bg-[length:350px_390px] group-hover:bg-[length:310px_350px] group-hover:bg-center group-hover:brightness-50 transform ease-in-out duration-1000 flex justify-center items-center"
+            ></div>
+            <div
+              class="h-3/6 w-11/12 mx-auto flex flex-col items-first justify-between p-2 border-[1px] border-gray-300 bg-white group-hover:drop-shadow-2xl"
+            >
+              <div class="flex justify-first items-center">
+                <p class="text-[30px] font-semibold">Avroko</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-400">MASTER CHEF</p>
+              </div>
+              <div
+                class="flex justify-first items-center h-[2px] w-1/12 group-hover:w-2/12 bg-red-300 transform ease-in-out duration-500"
+              ></div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">Tel: 947 577 575</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">owners@vamtam.com</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-400 group-hover:text-gray-700">
+                  Four partners, 14 years, multiple disciplines rooted in
+                  hospitality. New York-headquartered design-and-concept firm
+                  AvroKO.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="group relative w-3/12 h-full flex flex-col justify-center items-center"
+          >
+            <div
+              class="absolute top-[200px] 2xl:left-[120px] left-[60px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white opacity-0 group-hover:opacity-100 transform ease-in-out duration-500 group-hover:-translate-y-10"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[200px] 2xl:left-[180px] left-[120px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white opacity-0 group-hover:opacity-100 transform ease-in-out duration-500 group-hover:-translate-y-10"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[200px] 2xl:left-[240px] left-[180px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white opacity-0 group-hover:opacity-100 transform ease-in-out duration-500 group-hover:-translate-y-10"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="h-3/6 w-11/12 rounded-tl-[10px] rounded-tr-[10px] flex justify-center bg-[url('/img/people-4.jpg')] 2xl:bg-[length:470px_510px] 2xl:group-hover:bg-[length:430px_470px] xl:bg-[length:410px_450px] xl:group-hover:bg-[length:370px_410px] bg-center bg-[length:350px_390px] group-hover:bg-[length:310px_350px] group-hover:bg-center group-hover:brightness-50 transform ease-in-out duration-1000 flex justify-center items-center"
+            ></div>
+            <div
+              class="h-3/6 w-11/12 mx-auto flex flex-col items-first justify-between p-2 border-[1px] border-gray-300 bg-white group-hover:drop-shadow-2xl"
+            >
+              <div class="flex justify-first items-center">
+                <p class="text-[30px] font-semibold">Dan Rafalin</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-400">SOUS CHEF</p>
+              </div>
+              <div
+                class="flex justify-first items-center h-[2px] w-1/12 group-hover:w-2/12 bg-red-300 transform ease-in-out duration-500"
+              ></div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">Tel: 947 577 575</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">manager@vamtam.com</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-400 group-hover:text-gray-700">
+                  Dan Rafalin has been immersed in the culinary world from the
+                  beginning of his career when he received a Grand Diplôme in
+                  culinary arts.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="group relative w-3/12 h-full flex flex-col justify-center items-center"
+          >
+            <div
+              class="absolute top-[200px] 2xl:left-[120px] left-[60px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white opacity-0 group-hover:opacity-100 transform ease-in-out duration-500 group-hover:-translate-y-10"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[200px] 2xl:left-[180px] left-[120px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white opacity-0 group-hover:opacity-100 transform ease-in-out duration-500 group-hover:-translate-y-10"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[200px] 2xl:left-[240px] left-[180px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white opacity-0 group-hover:opacity-100 transform ease-in-out duration-500 group-hover:-translate-y-10"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="h-3/6 w-11/12 rounded-tl-[10px] rounded-tr-[10px] flex justify-center bg-[url('/img/people-8.jpg')] 2xl:bg-[length:470px_510px] 2xl:group-hover:bg-[length:430px_470px] xl:bg-[length:410px_450px] xl:group-hover:bg-[length:370px_410px] bg-center bg-[length:350px_390px] group-hover:bg-[length:310px_350px] group-hover:bg-center group-hover:brightness-50 transform ease-in-out duration-1000 flex justify-center items-center"
+            ></div>
+            <div
+              class="h-3/6 w-11/12 mx-auto flex flex-col items-first justify-between p-2 border-[1px] border-gray-300 bg-white group-hover:drop-shadow-2xl"
+            >
+              <div class="flex justify-first items-center">
+                <p class="text-[30px] font-semibold">Evan Mattew</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-400">SOUS CHEF</p>
+              </div>
+              <div
+                class="flex justify-first items-center h-[2px] w-1/12 group-hover:w-2/12 bg-red-300 transform ease-in-out duration-500"
+              ></div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">Tel: 947 577 575</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">manager@vamtam.com</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-400 group-hover:text-gray-700">
+                  Evan Mattew prepares fish dishes and often does all fish
+                  butchering as well as appropriate sauces. This station may be
+                  combined with the saucier position.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="h-full w-full justify-between items-center flex flex-col lg:hidden"
+        >
+          <div
+            class="relative w-full flex flex-col justify-center items-center sm:h-[1100px] h-[800px] mb-5 drop-shadow-xl"
+          >
+            <div
+              class="absolute top-[250px] sm:top-[500px] sm:left-[350px] left-[120px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white transform ease-in-out duration-500"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[250px] sm:top-[500px] sm:left-[410px] left-[180px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white transform ease-in-out duration-500"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[250px] sm:top-[500px] sm:left-[470px] left-[240px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white transform ease-in-out duration-500"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="h-[500px] rounded-tl-[10px] rounded-tr-[10px] sm:h-4/6 w-11/12 flex justify-center bg-[url('/img/people-1.jpg')] bg-top flex justify-center items-center bg-cover bg-center"
+            ></div>
+            <div
+              class="h-[300px] sm:h-2/6 w-11/12 mx-auto flex flex-col items-first justify-between p-2 border-[1px] border-gray-300 bg-white group-hover:drop-shadow-2xl"
+            >
+              <div class="flex justify-first items-center">
+                <p class="text-[30px] font-semibold">Brad Farmerie</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-400">CEO & FOUNDER</p>
+              </div>
+              <div
+                class="flex justify-first items-center h-[2px] w-1/12 group-hover:w-2/12 bg-red-300 transform ease-in-out duration-500"
+              ></div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">Tel: 947 577 575</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">chef@vamtam.com</p>
+              </div>
+              <div class="flex justify-first items-center text-left mb-4">
+                <p class="text-[16px] text-gray-700 flex">
+                  Brad Farmerie took a year hiatus from college to move to
+                  London and witness firsthand the culinary revolution taking
+                  place in the UK.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative w-full flex flex-col justify-center items-center sm:h-[1100px] h-[800px] mb-5 drop-shadow-xl"
+          >
+            <div
+              class="absolute top-[250px] sm:top-[500px] sm:left-[350px] left-[120px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white transform ease-in-out duration-500"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[250px] sm:top-[500px] sm:left-[410px] left-[180px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white transform ease-in-out duration-500"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[250px] sm:top-[500px] sm:left-[470px] left-[240px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white transform ease-in-out duration-500"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="h-[500px] rounded-tl-[10px] rounded-tr-[10px] sm:h-4/6 w-11/12 flex justify-center bg-[url('/img/people-3.jpg')] bg-top flex justify-center items-center bg-cover bg-center"
+            ></div>
+            <div
+              class="h-[300px] sm:h-2/6 w-11/12 mx-auto flex flex-col items-first justify-between p-2 border-[1px] border-gray-300 bg-white group-hover:drop-shadow-2xl"
+            >
+              <div class="flex justify-first items-center">
+                <p class="text-[30px] font-semibold">Brad Farmerie</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-400">CEO & FOUNDER</p>
+              </div>
+              <div
+                class="flex justify-first items-center h-[2px] w-1/12 group-hover:w-2/12 bg-red-300 transform ease-in-out duration-500"
+              ></div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">Tel: 947 577 575</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">chef@vamtam.com</p>
+              </div>
+              <div class="flex justify-first items-center text-left mb-4">
+                <p class="text-[16px] text-gray-700 flex">
+                  Brad Farmerie took a year hiatus from college to move to
+                  London and witness firsthand the culinary revolution taking
+                  place in the UK.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative w-full flex flex-col justify-center items-center sm:h-[1100px] h-[800px] mb-5 drop-shadow-xl"
+          >
+            <div
+              class="absolute top-[250px] sm:top-[500px] sm:left-[350px] left-[120px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white transform ease-in-out duration-500"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[250px] sm:top-[500px] sm:left-[410px] left-[180px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white transform ease-in-out duration-500"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[250px] sm:top-[500px] sm:left-[470px] left-[240px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white transform ease-in-out duration-500"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="h-[500px] rounded-tl-[10px] rounded-tr-[10px] sm:h-4/6 w-11/12 flex justify-center bg-[url('/img/people-4.jpg')] bg-top flex justify-center items-center bg-cover bg-center"
+            ></div>
+            <div
+              class="h-[300px] sm:h-2/6 w-11/12 mx-auto flex flex-col items-first justify-between p-2 border-[1px] border-gray-300 bg-white group-hover:drop-shadow-2xl"
+            >
+              <div class="flex justify-first items-center">
+                <p class="text-[30px] font-semibold">Brad Farmerie</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-400">CEO & FOUNDER</p>
+              </div>
+              <div
+                class="flex justify-first items-center h-[2px] w-1/12 group-hover:w-2/12 bg-red-300 transform ease-in-out duration-500"
+              ></div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">Tel: 947 577 575</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">chef@vamtam.com</p>
+              </div>
+              <div class="flex justify-first items-center text-left mb-4">
+                <p class="text-[16px] text-gray-700 flex">
+                  Brad Farmerie took a year hiatus from college to move to
+                  London and witness firsthand the culinary revolution taking
+                  place in the UK.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative w-full flex flex-col justify-center items-center sm:h-[1100px] h-[800px] mb-5 drop-shadow-xl"
+          >
+            <div
+              class="absolute top-[250px] sm:top-[500px] sm:left-[350px] left-[120px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white transform ease-in-out duration-500"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[250px] sm:top-[500px] sm:left-[410px] left-[180px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white transform ease-in-out duration-500"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="absolute top-[250px] sm:top-[500px] sm:left-[470px] left-[240px] h-10 w-10 border-white border-[1px] rounded-full z-50 flex justify-center items-center text-white hover:text-red-300 hover:bg-white transform ease-in-out duration-500"
+            >
+              <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+            </div>
+            <div
+              class="h-[500px] rounded-tl-[10px] rounded-tr-[10px] sm:h-4/6 w-11/12 flex justify-center bg-[url('/img/people-8.jpg')] bg-top flex justify-center items-center bg-cover bg-center"
+            ></div>
+            <div
+              class="h-[300px] sm:h-2/6 w-11/12 mx-auto flex flex-col items-first justify-between p-2 border-[1px] border-gray-300 bg-white group-hover:drop-shadow-2xl"
+            >
+              <div class="flex justify-first items-center">
+                <p class="text-[30px] font-semibold">Brad Farmerie</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-400">CEO & FOUNDER</p>
+              </div>
+              <div
+                class="flex justify-first items-center h-[2px] w-1/12 group-hover:w-2/12 bg-red-300 transform ease-in-out duration-500"
+              ></div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">Tel: 947 577 575</p>
+              </div>
+              <div class="flex justify-first items-center">
+                <p class="text-[14px] text-gray-700">chef@vamtam.com</p>
+              </div>
+              <div class="flex justify-first items-center text-left mb-4">
+                <p class="text-[16px] text-gray-700 flex">
+                  Brad Farmerie took a year hiatus from college to move to
+                  London and witness firsthand the culinary revolution taking
+                  place in the UK.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="Awards"
+        class="flex flex-col justify-center items-center w-full h-5/6 hidden"
+      >
+        <div
+          class="flex justify-between items-center lg:h-1/6 h-[100px] w-6/12"
+        >
+          <div class="h-[1px] w-4/12 bg-gray-200"></div>
+          <div class="flex justify-center items-center mx-4">
+            <p class="sm:text-[50px] text-[30px]">Awards</p>
+          </div>
+          <div class="h-[1px] w-4/12 bg-gray-200"></div>
+        </div>
+        <div
+          class="h-full w-full flex flex-col lg:justify-center justify-first items-center pt-10"
+        >
+          <div
+            class="lg:h-2/6 lg:w-6/12 h-[100px] w-full flex justify-center items-center sm:px-0 px-4"
+          >
+            <div class="h-full w-full flex justify-center items-center">
+              <img src="/img/award-logos-example.jpg" alt="" />
+            </div>
+          </div>
+          <div
+            id="awardsLg"
+            class="lg:h-4/6 lg:w-full xl:w-10/12 w-full flex lg:flex-row flex-col justify-center items-center mx-auto lg:mt-2 sm:mt-6"
+          >
+            <div
+              class="lg:h-5/6 lg:w-5/12 sm:h-2/6 h-3/6 w-10/12 flex flex-col items-end justify-between text-left"
+            >
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Michelin Guide, One Michelin Star (2002)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Gambero Rosso, Up and Coming Chef Award (2002)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    ESPRESSO Guide Performance of the Year (2004)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Lo Mejor de La Gastronomía, International Award (2005)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    ESPRESSO Guide, Dinner of the Year (2005)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Veronelli Guide, Three Stars (2005)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    MICHELIN Guide, Two-Michelin-Stars (2006)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Golosaria, Creative Restaurant of the Year (2006)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Identità Golose, Best Creative Chef (2007)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Gambero Rosso, Three Forks (2007)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    ESPRESSO Guide, Rating 19,520 (2009)
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="lg:h-5/6 lg:w-5/12 sm:h-2/6 h-3/6 w-10/12 flex flex-col items-first justify-between lg:mt-0 mt-10 text-left"
+            >
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px] text-left">
+                    The World’s 50 Best Restaurants, Highest New Entry (2009)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Les Grandes Tables du Monde (2010)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px] text-left">
+                    ESPRESSO Guide, Highest rating recorded 19,7520 (2010)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Identità Golose, Chef of the Year (2010)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    BMW Guide, Restaurant of the Year (2010)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Michelin Guide, Three Michelin Stars (2011)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Gambero Rosso Guide, Best Restaurant Rating 95 (2012)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    “ESPRESSO” Guide, Best Restaurant Rating 19,75 (2012)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Touring 2012 Guide, Best Restaurant Rating 93 (2012)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    ESPRESSO Guide, Rating 1920 (2007)
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-first items-center w-full">
+                <div
+                  class="h-[5px] w-[5px] rounded-full bg-gray-800 mr-2"
+                ></div>
+                <div>
+                  <p class="text-gray-700 sm:text-[16px] text-[14px]">
+                    Gambero Rosso, Three forks (2008)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="GalleryMain"
+      class="w-screen lg:h-screen sm:h-[600px] h-[350px] bg-white z-50 mx-auto flex flex-col justify-first items-center px-4 xl:px-20 sm:px-10 px-4"
+    >
+      <div class="w-6/12 sm:h-20 flex justify-center items-end">
+        <div class="w-3/12 h-[1px] bg-gray-300 mb-4"></div>
+        <div class="mx-4 flex justify-center items-center">
+          <p class="sm:text-[60px] text-[40px] sm:font-semibold">Gallery</p>
+        </div>
+        <div class="w-3/12 h-[1px] bg-gray-300 mb-4"></div>
+      </div>
+      <div class="w-full h-10 flex justify-center items-first mb-10">
+        <div><p class="text-[14px] text-red-400">~ What we make ~</p></div>
+      </div>
+      <div class="w-full h-4/6 flex">
+        <div class="flex flex-col w-2/12 h-full cursor-auto">
+          <a
+            title="photo-gourmet-1"
+            class="w-full h-4/6 bg-[url('/img/photo-gourmet-1.webp')] bg-cover bg-center cursor-pointer mb-1"
+          >
+          </a>
+          <a
+            title="photo-gourmet-3"
+            class="w-full h-2/6 bg-[url('/img/photo-gourmet-3.webp')] bg-cover bg-center cursor-pointer"
+          >
+          </a>
+        </div>
+        <a
+          href=""
+          title="photo-gourmet-4"
+          class="w-8/12 h-full bg-[url('/img/photo-gourmet-4.webp')] bg-cover bg-center mx-1"
+        >
+        </a>
+        <div class="flex flex-col w-2/12 h-full">
+          <a
+            title="photo-gourmet-6"
+            class="w-full h-3/6 bg-[url('/img/photo-gourmet-6.webp')] bg-cover bg-center cursor-pointer mb-1"
+          >
+          </a>
+          <a
+            title="photo-gourmet-7"
+            class="w-full h-3/6 bg-[url('/img/photo-gourmet-7.webp')] bg-cover bg-center cursor-pointer"
+          >
+          </a>
+        </div>
+      </div>
+    </section>
+    <section
+      id="GuestBook"
+      class="w-screen bg-white z-50 mx-auto flex flex-col justify-first items-center"
+    >
+      <div class="w-6/12 h-20 flex justify-center items-end">
+        <div class="w-3/12 h-[1px] bg-gray-300 mb-4"></div>
+        <div class="mx-4 flex justify-center items-center">
+          <p class="sm:text-[60px] text-[40px] sm:font-semibold">GUESTBOOK</p>
+        </div>
+        <div class="w-3/12 h-[1px] bg-gray-300 mb-4"></div>
+      </div>
+      <div class="w-full h-10 flex justify-center items-first">
+        <div><p class="text-[14px] text-red-400">~ What they say ~</p></div>
+      </div>
+      <div class="swiper-container relative w-10/12 h-[250px] overflow-hidden">
+        <div class="swiper-wrapper w-full h-full">
+          <div class="swiper-slide w-full h-full">
+            <div
+              class="w-full h-full flex flex-col justify-first items-center text-center cursor-pointer"
+            >
+              <div
+                class="h-1/6 sm:w-8/12 w-full flex justify-center items-center mb-4 lg:mb-0"
+              >
+                <p class="sm:text-[25px] text-[20px] font-semibold">
+                  “Great cooking favors the prepared hands.”
+                </p>
+              </div>
+              <div class="h-10 w-8/12 flex justify-center items-first">
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div>
+                  <p class="text-[12px] text-gray-500">- T. SCOTT MCLEOD1</p>
+                </div>
+              </div>
+              <div class="flex justify-center items-center sm:w-6/12 w-full">
+                <p class="text-[16px] text-gray-700">
+                  A delightful and informative visit. Gardens beautiful even in
+                  the rain! Very helpful staff.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide w-full h-full">
+            <div
+              class="w-full h-full flex flex-col justify-first items-center text-center cursor-pointer"
+            >
+              <div
+                class="h-1/6 sm:w-8/12 w-full flex justify-center items-center mb-4 lg:mb-0"
+              >
+                <p class="sm:text-[25px] text-[20px] font-semibold">
+                  “Great cooking favors the prepared hands.”
+                </p>
+              </div>
+              <div class="h-10 w-8/12 flex justify-center items-first">
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div>
+                  <p class="text-[12px] text-gray-500">- T. SCOTT MCLEOD1</p>
+                </div>
+              </div>
+              <div class="flex justify-center items-center sm:w-6/12 w-full">
+                <p class="text-[16px] text-gray-700">
+                  A delightful and informative visit. Gardens beautiful even in
+                  the rain! Very helpful staff.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide w-full h-full">
+            <div
+              class="w-full h-full flex flex-col justify-first items-center text-center cursor-pointer"
+            >
+              <div
+                class="h-1/6 sm:w-8/12 w-full flex justify-center items-center mb-4 lg:mb-0"
+              >
+                <p class="sm:text-[25px] text-[20px] font-semibold">
+                  “Great cooking favors the prepared hands.”
+                </p>
+              </div>
+              <div class="h-10 w-8/12 flex justify-center items-first">
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div>
+                  <p class="text-[12px] text-gray-500">- T. SCOTT MCLEOD1</p>
+                </div>
+              </div>
+              <div class="flex justify-center items-center sm:w-6/12 w-full">
+                <p class="text-[16px] text-gray-700">
+                  A delightful and informative visit. Gardens beautiful even in
+                  the rain! Very helpful staff.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide w-full h-full">
+            <div
+              class="w-full h-full flex flex-col justify-first items-center text-center cursor-pointer"
+            >
+              <div
+                class="h-1/6 sm:w-8/12 w-full flex justify-center items-center mb-4 lg:mb-0"
+              >
+                <p class="sm:text-[25px] text-[20px] font-semibold">
+                  “Great cooking favors the prepared hands.”
+                </p>
+              </div>
+              <div class="h-10 w-8/12 flex justify-center items-first">
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div>
+                  <p class="text-[12px] text-gray-500">- T. SCOTT MCLEOD1</p>
+                </div>
+              </div>
+              <div class="flex justify-center items-center sm:w-6/12 w-full">
+                <p class="text-[16px] text-gray-700">
+                  A delightful and informative visit. Gardens beautiful even in
+                  the rain! Very helpful staff.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide w-full h-full">
+            <div
+              class="w-full h-full flex flex-col justify-first items-center text-center cursor-pointer"
+            >
+              <div
+                class="h-1/6 sm:w-8/12 w-full flex justify-center items-center mb-4 lg:mb-0"
+              >
+                <p class="sm:text-[25px] text-[20px] font-semibold">
+                  “Great cooking favors the prepared hands.”
+                </p>
+              </div>
+              <div class="h-10 w-8/12 flex justify-center items-first">
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </div>
+                <div>
+                  <p class="text-[12px] text-gray-500">- T. SCOTT MCLEOD1</p>
+                </div>
+              </div>
+              <div class="flex justify-center items-center sm:w-6/12 w-full">
+                <p class="text-[16px] text-gray-700">
+                  A delightful and informative visit. Gardens beautiful even in
+                  the rain! Very helpful staff.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <section
+      id="Reservation"
+      class="w-screen h-screen flex bg-white z-50 mx-auto flex flex-col justify-center items-center"
+    >
+      <div
+        class="h-4/6 w-full flex justify-center bg-[url('/img/patriotic-fruit-salad-2.jpg')] bg-cover bg-center justify-center items-center"
+      >
+        <div class="h-5/6 lg:w-4/12 w-11/12 flex flex-col">
+          <div
+            class="after:w-3/12 after:absolute after:bottom-0 after:border-b-[0.1px] after:border-b-gray-900 relative w-full h-10 flex justify-center items-center before:bg-blend-black before:brightness-0 before:bg-[url('https://vip-restaurant.vamtam.com/wp-content/themes/vip-restaurant/vamtam/assets/images/ornament-top.svg')] before:bg-contain before:bg-no-repeat before:bg-center before:h-full before:w-full before:absolute before:top-0 before:left-0"
+          ></div>
+          <div
+            class="w-full h-1/6 flex justify-center items-center bg-black rounded-tr-[20px] rounded-tl-[20px]"
+          >
+            <p class="text-white">RESERVATIONS</p>
+          </div>
+          <div
+            class="w-full h-1/6 bg-gray-200 flex justify-center items-center"
+          >
+            <p class="text-[20px] font-semibold">Openning Times</p>
+          </div>
+          <div
+            class="w-full h-2/6 bg-gray-200 flex flex-col justify-center items-center"
+          >
+            <div
+              class="w-11/12 mx-auto h-2/6 flex justify-between items-center border-y-[1px] border-y-gray-300 border-dashed"
+            >
+              <div class="w-4/12 h-full flex justify-center items-center">
+                <p class="text-gray-500">Week days</p>
+              </div>
+              <div class="w-4/12 h-full flex justify-center items-center">
+                <p class="text-gray-500">9.00 - 18:00</p>
+              </div>
+            </div>
+            <div
+              class="w-11/12 mx-auto h-2/6 flex justify-between items-center border-b-[1px] border-b-gray-300 border-dashed"
+            >
+              <div class="w-4/12 h-full flex justify-center items-center">
+                <p class="text-gray-500">Saturday</p>
+              </div>
+              <div class="w-4/12 h-full flex justify-center items-center">
+                <p class="text-gray-500">10.00 - 17:00</p>
+              </div>
+            </div>
+            <div
+              class="w-11/12 mx-auto h-2/6 flex justify-between items-center border-b-[1px] border-b-gray-300 border-dashed"
+            >
+              <div class="w-4/12 h-full flex justify-center items-center">
+                <p class="text-gray-500">Sunday</p>
+              </div>
+              <div class="w-4/12 h-full flex justify-center items-center">
+                <p class="text-gray-500">Closed</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-full h-1/6 bg-gray-200 flex flex-col justify-center items-center"
+          >
+            <p class="text-[14px]">Book your table for lunch or dinner.</p>
+            <p class="text-[29px] font-semibold mt-2">+39 059 223912</p>
+          </div>
+          <div
+            class="w-full h-1/6 bg-gray-200 flex justify-center items-center rounded-bl-[20px] rounded-br-[20px] z-20"
+          >
+            <div
+              class="group overflow-hidden cursor-pointer relative h-10 w-28 rounded-full border-[1px] border-red-600 flex justify-center items-center flex flex-col before:text-white before:absolute before:rounded-full before:h-0 before:w-full before:hover:h-full before:transform before:ease-in-out before:duration-300 before:bottom-0 before:bg-red-600 before:hover:content-['Book_Now'] bofore:content-none before:flex before:justify-center before:items-center"
+            >
+              <div
+                class="absolute flex justify-center items-center group-hover:-translate-y-10 group-hover:ease-in group-hover:duration-300"
+              >
+                Book Now
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative w-full h-10 flex justify-center items-center before:rotate-[180deg] before:bg-blend-black before:brightness-90 before:bg-[url('https://vip-restaurant.vamtam.com/wp-content/themes/vip-restaurant/vamtam/assets/images/ornament-top.svg')] before:bg-contain before:bg-no-repeat before:bg-center before:h-full before:w-full before:absolute before:top-0 before:left-0"
+          ></div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col h-2/6 w-full justify-center items-center mb-4 relative before:brightness-100 before:bg-[url('https://vip-restaurant.vamtam.com/wp-content/themes/vip-restaurant/vamtam/assets/images/ornament-top.svg')] before:bg-contain before:bg-no-repeat before:bg-center before:h-7 before:w-full before:absolute before:top-[-27px] before:left-0"
+      >
+        <div
+          class="w-full h-5/6 bg-[url('/img/gourmet-photo-5.jpg')] bg-contain bg-center bg-no-repeat"
+        ></div>
+        <div
+          class="w-full h-1/6 justify-center items-center flex hidden lg:flex"
+        >
+          <div
+            class="h-full sm:w-6/12 w-11/12 rounded-full border-[1px] border-green-400 flex"
+          >
+            <div class="w-3/12 h-full flex justify-end items-center">
+              <img
+                class="flex justify-end h-5/6 w-10/12 bg-green-400 p-1"
+                src="/img/Tripadvisor_lockup_horizontal_secondary_registered-18034-2.svg"
+                alt=""
+              />
+            </div>
+            <div
+              class="w-3/12 h-full flex flex-col justify-center items-center"
+            >
+              <div>
+                <a
+                  href=""
+                  class="underline font-bold sm:text-[16px] text-[12px] flex"
+                  >Osteria</a
+                >
+              </div>
+              <div>
+                <a
+                  href=""
+                  class="underline font-bold sm:text-[16px] text-[12px] flex"
+                  >Francescana
+                </a>
+              </div>
+            </div>
+            <div class="w-3/12 h-full flex justify-center items-first">
+              <div class="w-full h-3/6 flex justify-center items-end">
+                <div
+                  class="h-3 w-3 bg-green-400 rounded-full border-[1px] border-green-500"
+                ></div>
+                <div
+                  class="h-3 w-3 bg-green-400 rounded-full border-[1px] border-green-500 mx-1"
+                ></div>
+                <div
+                  class="h-3 w-3 bg-green-400 rounded-full border-[1px] border-green-500"
+                ></div>
+                <div
+                  class="h-3 w-3 bg-green-400 rounded-full border-[1px] border-green-500 mx-1"
+                ></div>
+                <div class="h-3 w-3 rounded-full border-[1px] border-green-500">
+                  <div class="w-6/12 h-full bg-green-400"></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+            <div class="w-3/12 h-full flex justify-first items-center">
+              <p class="text-gray-400 sm:text-[12px] text-[10px]">
+                2,606 reviews
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer
+    id="footers"
+      class="lg:h-[350px] h-[700px] w-screen mx-auto lg:z-30 z-50 flex flex-col justify-end items-center lg:sticky lg:bottom-0 bg-black"
+    >
+      <div class="w-full h-1/6 flex justify-center items-end">
+        <p
+          class="lg:text-[70px] text-[40px] text-yellow-700 font-semibold flex justify-center lg:items-first items-center h-full"
+        >
+          Délicious
+        </p>
+      </div>
+      <div
+        class="w-full lg:h-3/6 h-5/6 flex lg:flex-row flex-col justify-center lg:items-first items-center px-4"
+      >
+        <div
+          class="lg:w-4/12 w-full xl:w-3/12 h-full flex flex-col justify-first items-center text-white"
+        >
+          <div class="flex justify-center items-center w-full h-2/6">
+            <p class="lg:font-semibold text-[25px]">About</p>
+          </div>
+          <div
+            class="lg:flex lg:flex-col hidden justify-center items-center w-full h-1/6 text-center"
+          >
+            <p class="font-semibold text-[12px]">
+              Osteria Francescana is a restaurant owned and run by
+            </p>
+            <p class="font-semibold text-[12px]">
+              chef Massimo Bottura in Modena, Italy
+            </p>
+          </div>
+          <div
+            class="flex lg:hidden justify-center items-center w-10/12 h-1/6 text-center"
+          >
+            <p class="font-semibold text-[12px]">
+              Osteria Francescana is a restaurant owned and run by chef Massimo
+              Bottura in Modena, Italy
+            </p>
+          </div>
+          <div
+            class="flex justify-center items-center lg:w-full sm:w-6/12 w-full lg:h-1/6 h-10 mt-2"
+          >
+            <div
+              class="group overflow-hidden cursor-pointer relative h-full w-6/12 rounded-full border-[1px] border-red-600 flex justify-center items-center flex flex-col before:text-white before:absolute before:rounded-full before:h-0 before:w-full before:hover:h-full before:transform before:ease-in-out before:duration-300 before:bottom-0 before:bg-red-600 before:hover:content-['Buy_this_Delicious_Theme'] bofore:content-none before:flex before:justify-center before:items-center before:text-gray-200 before:font-semibold before:text-[12px]"
+            >
+              <div
+                class="absolute flex justify-center items-center group-hover:-translate-y-10 group-hover:ease-in group-hover:duration-300 text-gray-200 text-[12px] font-semibold"
+              >
+                Buy this Delicious Theme
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="lg:w-4/12 w-full xl:w-3/12 h-full flex flex-col justify-center items-center"
+        >
+          <div class="flex justify-center items-center w-full h-2/6">
+            <p class="font-semibold text-[25px] text-white">
+              Get news & offers
+            </p>
+          </div>
+          <div class="flex flex-col justify-center items-center w-full h-2/6">
+            <form class="flex justify-center items-center w-9/12 sm:w-6/12 lg:w-full h-4/6 mb-1">
+              <div
+                class="w-8/12 h-full rounded-bl-full rounded-tl-full border-t-[1px] border-l-[1px] border-b-[1px] border-gray-200 hover:border-red-400 flex justify-center items-center"
+              >
+                <input
+                  type="email"
+                  class="flex lg:w-8/12 w-11/12 h-4/6 bg-black text-gray-100 text-sm p-2.5 outline-none focus:placeholder-black focus:transform focus:ease-in-out focus:duration-1000"
+                  placeholder="Your email"
+                  required
+                />
+              </div>
+              <div
+                class="w-4/12 h-full rounded-br-full rounded-tr-full border-[1px] border-red-400 hover:bg-red-300 transform ease-in-out duration-300"
+              >
+                <button
+                  type="submit"
+                  class="w-full h-full flex justify-center items-center"
+                >
+                  <span class="text-[14px] text-white">Subscribe</span>
+                </button>
+              </div>
+            </form>
+            <div class="flex justify-center items-end h-1/6 w-full mt-2">
+              <p
+                class="text-gray-500 text-[12px] flex justify-center items-center"
+              >
+                * We never send you spam!
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-center items-center w-full h-2/6">
+            <div class="lg:w-1/12 w-10 h-full flex justify-center items-center">
+              <a href="" class="flex justify-center items-center"
+                ><i
+                  class="flex fa-brands fa-twitter text-red-400 hover:text-white transform ease-in-out duration-300"
+                ></i
+              ></a>
+            </div>
+            <div class="lg:w-1/12 w-10 h-full flex justify-center items-center">
+              <a href="" class="flex justify-center items-center"
+                ><i
+                  class="flex fa-brands fa-twitter text-red-400 hover:text-white transform ease-in-out duration-300"
+                ></i
+              ></a>
+            </div>
+            <div class="lg:w-1/12 w-10 h-full flex justify-center items-center">
+              <a href="" class="flex justify-center items-center"
+                ><i
+                  class="flex fa-brands fa-twitter text-red-400 hover:text-white transform ease-in-out duration-300"
+                ></i
+              ></a>
+            </div>
+            <div class="lg:w-1/12 w-10 h-full flex justify-center items-center">
+              <a href="" class="flex justify-center items-center"
+                ><i
+                  class="flex fa-brands fa-twitter text-red-400 hover:text-white transform ease-in-out duration-300"
+                ></i
+              ></a>
+            </div>
+            <div class="lg:w-1/12 w-10 h-full flex justify-center items-center">
+              <a href="" class="flex justify-center items-center"
+                ><i
+                  class="flex fa-brands fa-twitter text-red-400 hover:text-white transform ease-in-out duration-300"
+                ></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-4/12 xl:w-3/12 h-full flex flex-col justify-center items-center"
+        >
+          <div class="flex justify-center items-center w-full h-2/6">
+            <p class="font-bold text-[30px] text-white">Contacts</p>
+          </div>
+          <div class="w-full h-2/6 flex flex-col justify-center items-center">
+            <div class="flex justify-center items-center w-full">
+              <div class="flex justify-center items-center">
+                <p class="text-gray-200 text-[14px]">Via Stella, 22</p>
+              </div>
+            </div>
+            <div class="flex justify-center items-center w-full">
+              <div class="flex justify-center items-center">
+                <p class="text-gray-200 text-[14px]">Modena MO, Italy</p>
+              </div>
+            </div>
+            <div class="flex justify-center items-center w-full">
+              <div class="flex justify-center items-center">
+                <p class="text-gray-200 text-[14px]">+390 59 223 912</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center items-center w-full h-2/6">
+            <a
+              href=""
+              class="text-gray-500 text-[14px] hover:text-red-600 transform ease-in-out duration-300"
+              >hello@yoursite.com</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full h-10 bg-white flex lg:flex-row flex-col justify-between items-center"
+      >
+        <div class="flex md:w-5/12 w-full h-full justify-center items-center">
+          <p class="text-[12px] text-gray-700">© 2022</p>
+          <a
+            class="text-[12px] mx-1 text-red-800 hover:text-black transform ease-in-out duration-300"
+            href=""
+          >
+            Delicious Restaurant & Café Theme
+          </a>
+          <p class="text-[12px] text-gray-700">by</p>
+          <a
+            class="text-[12px] mx-1 text-red-800 hover:text-black transform ease-in-out duration-300"
+            href=""
+          >
+            VamTam Themes</a
+          >
+        </div>
+        <div class="flex sm:w-4/12 w-full h-full justify-center items-center">
+          <p class="text-[12px] text-gray-700">Proudly powered by</p>
+          <a
+            class="text-[12px] mx-1 text-red-800 hover:text-black transform ease-in-out duration-300"
+            href=""
+            >WordPress</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="/src/all.js"></script>
+    <script type="module" src="/src/index.js"></script>
+  </body>
+</html>
